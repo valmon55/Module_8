@@ -4,12 +4,13 @@
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor= ConsoleColor.Black;
             Console.WriteLine("Укажите директорию: ");
             string DirPath = Console.ReadLine();
             //string DirPath = @"D:\Temp";
             if (Directory.Exists(DirPath))
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Директория {DirPath}");
                 SearchFolders(DirPath);
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -22,6 +23,8 @@
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Директории {DirPath} не найдено!");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.BackgroundColor = ConsoleColor.Black;
             }
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
@@ -95,7 +98,7 @@
         {
             try
             {
-                if ((DateTime.Now - File.GetLastAccessTime(file)) <= TimeSpan.FromMinutes(30))
+                if ((DateTime.Now - File.GetLastAccessTime(file)) >= TimeSpan.FromMinutes(30))
                 {
                     File.Delete(file);
                     Console.BackgroundColor = ConsoleColor.Gray;
@@ -127,7 +130,7 @@
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.WriteLine($"Директория: {directory} дата использования: {Directory.GetLastAccessTime(directory)} ");
-                    if ((DateTime.Now - Directory.GetLastAccessTime(directory)) <= TimeSpan.FromMinutes(30)
+                    if ((DateTime.Now - Directory.GetLastAccessTime(directory)) >= TimeSpan.FromMinutes(30)
                         && Directory.GetDirectories(directory).Length == 0
                         && Directory.GetFiles(directory).Length == 0
                        )
