@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkWithFiles.Task1", "WorkWithFiles.Task1\WorkWithFiles.Task1.csproj", "{FB383DFF-8B05-46CC-B501-9FCC440B844B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkWithFiles.Task1", "WorkWithFiles.Task1\WorkWithFiles.Task1.csproj", "{FB383DFF-8B05-46CC-B501-9FCC440B844B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkWithFiles.Task2", "WorkWithFiles.Task2\WorkWithFiles.Task2.csproj", "{8A0AC36E-0DB6-4EF3-90B1-FBBFF96CABAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkWithFiles.Task2", "WorkWithFiles.Task2\WorkWithFiles.Task2.csproj", "{8A0AC36E-0DB6-4EF3-90B1-FBBFF96CABAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkWithFiles.Task3", "WorkWithFiles.Task3\WorkWithFiles.Task3.csproj", "{CAF52A12-ACBC-476A-BA48-7300C6326C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8A0AC36E-0DB6-4EF3-90B1-FBBFF96CABAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A0AC36E-0DB6-4EF3-90B1-FBBFF96CABAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A0AC36E-0DB6-4EF3-90B1-FBBFF96CABAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF52A12-ACBC-476A-BA48-7300C6326C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF52A12-ACBC-476A-BA48-7300C6326C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF52A12-ACBC-476A-BA48-7300C6326C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF52A12-ACBC-476A-BA48-7300C6326C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
