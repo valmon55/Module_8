@@ -18,8 +18,8 @@
                 {
                     //Console.ForegroundColor = ConsoleColor.Cyan;
                     //Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine($"Размер : {directory} = {size} ");
-                    FolderSize(directory);
+                    Console.WriteLine($"Размер : {directory} = {size} байт");
+                    size += FolderSize(directory);
                 }
             }
             catch(Exception ex) 
@@ -39,9 +39,9 @@
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.Black;
-            //Console.WriteLine("Укажите директорию: ");
-            //string? DirPath = Console.ReadLine();
-            string DirPath = @"D:\Oracle";
+            Console.WriteLine("Укажите директорию: ");
+            string? DirPath = Console.ReadLine();
+            //string DirPath = @"D:\";
             if (Directory.Exists(DirPath))
             {
                 //Console.ForegroundColor = ConsoleColor.Cyan;
