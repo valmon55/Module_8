@@ -22,7 +22,7 @@ namespace WorkWithFiles.Task3
 
                 foreach (DirectoryInfo directory in folder.GetDirectories())
                 {
-                    Console.WriteLine($"Размер : {directory} = {size} байт");
+                    //Console.WriteLine($"Размер : {directory} = {size} байт");
                     size += FolderSize(directory);
                 }
             }
@@ -36,6 +36,39 @@ namespace WorkWithFiles.Task3
             }
             return size;
         }
+        public static long DeleteOldFiles(this DirectoryInfo folder)
+        {
+            long size = 0;
+
+            try
+            {
+                foreach (FileInfo file in folder.GetFiles())
+                {
+                    if (DateTime.Now - file.LastAccessTime >= TimeSpan.FromMinutes(30))
+                    {
+                        size += file.Length;
+                        file.Delete();
+                    }
+                }
+                foreach (DirectoryInfo directory in folder.GetDirectories())
+                {
+                    //Console.ForegroundColor = ConsoleColor.Cyan;
+                    //Console.BackgroundColor = ConsoleColor.Black;
+                    //Console.WriteLine($"Директория: {directory} размер: {size} ");
+                    size += DeleteOldFiles(directory);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(e.Message);
+            }
+
+            return size;
+        }
+
     }
+
 }
 
