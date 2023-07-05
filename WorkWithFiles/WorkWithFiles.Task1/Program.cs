@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Укажите директорию: ");
-            //string DirPath = Console.ReadLine();
-            string DirPath = @"N:\!!!HLAM!!!\KRIVOSINNYY\!";
+            Console.WriteLine("Укажите директорию: ");
+            string DirPath = Console.ReadLine();
+            //string DirPath = @"D:\Temp";
             if (Directory.Exists(DirPath))
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -23,6 +23,8 @@
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Директории {DirPath} не найдено!");
             }
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
         }
         /// <summary>
@@ -53,9 +55,12 @@
                 Console.WriteLine(e.Message);
             }
         }
+        /// <summary>
+        /// Поиск файлов в каталоге
+        /// </summary>
+        /// <param name="folder"></param>
         public static void SearchFiles(string folder)
         {
-            //Console.WriteLine(Directory.GetLastAccessTime(folder));
             try
             {
                 foreach (string file in Directory.GetFiles(folder))
@@ -82,6 +87,10 @@
                 Console.WriteLine(e.Message);
             }
         }
+        /// <summary>
+        /// Удаление файла
+        /// </summary>
+        /// <param name="file"></param>
         public static void DeleteFile(string file)
         {
             try
@@ -101,6 +110,10 @@
                 Console.WriteLine(e.Message);
             }
         }
+        /// <summary>
+        /// Рекурсивное удаление каталогов
+        /// </summary>
+        /// <param name="folder"></param>
         public static void DeleteFolders(string folder)
         {
             if (!Directory.Exists(folder))
@@ -113,7 +126,6 @@
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.BackgroundColor = ConsoleColor.Black;
-                    //Console.WriteLine($"Директория {directory}");
                     Console.WriteLine($"Директория: {directory} дата использования: {Directory.GetLastAccessTime(directory)} ");
                     if ((DateTime.Now - Directory.GetLastAccessTime(directory)) <= TimeSpan.FromMinutes(30)
                         && Directory.GetDirectories(directory).Length == 0
