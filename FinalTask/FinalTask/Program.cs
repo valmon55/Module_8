@@ -1,10 +1,10 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 
-namespace WorkWithFiles.Task4
+namespace FinalTask
 {
     [Serializable]
     public class Student
-    { 
+    {
         public string Name { get; set; }
         public string Group { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -19,23 +19,28 @@ namespace WorkWithFiles.Task4
                 Directory.CreateDirectory(StudentsPath);
             }
 
-            List<Student> students = new List<Student>();
+            Student[] students;
             Student parseStudent;
-            
+
             BinaryFormatter bf = new BinaryFormatter();
 
             string StudentFile = "D:\\SkillBox\\Students.dat";
             if (!File.Exists(StudentFile))
                 Console.WriteLine("Файл Students.dat не найден");
             else
-                using(FileStream fs = new FileStream(StudentFile, FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(StudentFile, FileMode.OpenOrCreate))
                 {
                     try
                     {
-                        parseStudent = (Student)bf.Deserialize(fs);
+                        students = (Student[])bf.Deserialize(fs);
+                        foreach (Student student in students)
+                        {
+                            Console.WriteLine($"{student.Name} {student.DateOfBirth} {student.Group}");
+                        }
+
                     }
-                    catch(Exception e) 
-                    { 
+                    catch (Exception e)
+                    {
                         Console.WriteLine(e.ToString());
                     }
 
