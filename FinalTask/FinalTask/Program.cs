@@ -57,8 +57,10 @@ namespace FinalTask
                             else
                             {
                                 sw.Close();
-                                file_group = StudentsPath + @"\Group_" + students[i].Group + ".txt";
+                                group_name = students[i].Group;
+                                file_group = StudentsPath + @"\Group_" + group_name + ".txt";
                                 sw = File.CreateText(file_group);
+                                sw.WriteLine($"\"{students[i].Name}, {students[i].DateOfBirth.ToString()}\"");
                             }                            
                         }
                         sw.Close();                        
