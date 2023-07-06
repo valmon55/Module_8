@@ -35,6 +35,11 @@ namespace FinalTask
                         students = (Student[])bf.Deserialize(fs);
                         foreach (Student student in students)
                         {
+                            Console.WriteLine($"{student.Name} {student.DateOfBirth} {student.Group}");                            
+                        }
+                        SortStudentsByGroops(ref students);
+                        foreach (Student student in students)
+                        {
                             Console.WriteLine($"{student.Name} {student.DateOfBirth} {student.Group}");
                         }
 
@@ -45,6 +50,21 @@ namespace FinalTask
                     }
 
                 }
+
+        }
+        public static void SortStudentsByGroops(ref Student[] _students)
+        {
+            Student student;
+            student= _students[0];
+            //for (int i = 1; i < _students.Length; i++)
+                for (int k = 0; k < _students.Length; k++)
+                    for (int i = k + 1; i < _students.Length; i++)
+                        if (string.Compare(_students[i].Group, _students[k].Group) < 0)
+                        {
+                            student = _students[k];
+                            _students[k] = _students[i];
+                            _students[i] = student;
+                        }
         }
     }
 }
