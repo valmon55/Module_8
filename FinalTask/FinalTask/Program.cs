@@ -24,7 +24,10 @@ namespace FinalTask
 
             BinaryFormatter bf = new BinaryFormatter();
 
-            string StudentFile = "D:\\SkillBox\\Students.dat";
+            Console.WriteLine("Укажите полный путь файла Students.dat : ");
+            string? StudentFile = Console.ReadLine();
+
+            //string StudentFile = "D:\\SkillBox\\Students.dat";
             if (!File.Exists(StudentFile))
                 Console.WriteLine("Файл Students.dat не найден");
             else
