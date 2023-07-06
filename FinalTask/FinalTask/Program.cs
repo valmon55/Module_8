@@ -37,11 +37,31 @@ namespace FinalTask
                         {
                             Console.WriteLine($"{student.Name} {student.DateOfBirth} {student.Group}");                            
                         }
+                        Console.WriteLine("========================================================");
                         SortStudentsByGroops(ref students);
                         foreach (Student student in students)
                         {
                             Console.WriteLine($"{student.Name} {student.DateOfBirth} {student.Group}");
                         }
+
+                        string group_name = students[0].Group;
+                        string file_group = StudentsPath + @"\Group_" + group_name + ".txt";
+                        StreamWriter sw = File.CreateText(file_group); 
+                        for (int i = 0; i < students.Length; i++)
+                        {
+                            
+                            if (group_name == students[i].Group)
+                            {
+                                sw.WriteLine($"\"{students[i].Name}, {students[i].DateOfBirth.ToString()}\"");                                
+                            }
+                            else
+                            {
+                                sw.Close();
+                                file_group = StudentsPath + @"\Group_" + students[i].Group + ".txt";
+                                sw = File.CreateText(file_group);
+                            }                            
+                        }
+                        sw.Close();                        
 
                     }
                     catch (Exception e)
@@ -50,7 +70,6 @@ namespace FinalTask
                     }
 
                 }
-
         }
         public static void SortStudentsByGroops(ref Student[] _students)
         {
